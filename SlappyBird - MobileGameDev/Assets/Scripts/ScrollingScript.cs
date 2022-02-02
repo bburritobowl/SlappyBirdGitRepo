@@ -5,12 +5,13 @@ using UnityEngine;
 public class ScrollingScript : MonoBehaviour
 {
     private Rigidbody2D groundRB;
+    [SerializeField] float scrollSpeed = -1.5f;
 
     // Start is called before the first frame update
     void Start()
     {
         groundRB = GetComponent<Rigidbody2D>();
-        groundRB.velocity = new Vector2(GameManagerScript.instance.bgScrollSpeed, 0);
+        groundRB.velocity = new Vector2(scrollSpeed, 0);
     }
 
     // Update is called once per frame
