@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class BirdControllerScript : MonoBehaviour
 {
@@ -8,7 +9,8 @@ public class BirdControllerScript : MonoBehaviour
     private Rigidbody2D birdRB;
     private float UpwardsYeetPower = 200f;
     private Animator animator;
-    private int lives = 3;
+    public static int lives = 3;
+    public Text livesText;
     private SpriteRenderer spriteRenderer;
     private PolygonCollider2D polyCollider2D;
 
@@ -44,6 +46,7 @@ public class BirdControllerScript : MonoBehaviour
         else //the oof go down
         {
             lives--;
+            livesText.text = "Lives: " + lives;
             spriteRenderer.color = Color.red;
             polyCollider2D.enabled = false;
             yield return new WaitForSeconds(2f); //Give the player a break
